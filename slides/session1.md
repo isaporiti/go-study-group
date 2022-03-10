@@ -44,18 +44,7 @@ Sintácticamente similar a C pero más seguro en gestión de memoria:
 - Punteros, pero sin aritmética de punteros
 - Garbage Collection
   - software encargado de liberar memoria de aquellos recursos que deja de usar nuestro programa
-
----
-
-# ¿Qué es Go? IV
-
-Herramientas de desarrollo de fábrica:
-
-- **Testing** (`go test`)
-- Compilador (`go build`)
-- Gestión de dependencias (`go get`)
-- Formato de código (`go fmt`)
-
+  
 ---
 Supongamos que tenemos que comenzar un proyecto con Go, desde cero.
 
@@ -130,7 +119,7 @@ Algunas de las funciones que provee, son:
 
 - Proceso iterativo de desarrollo de software.
 - Tres pasos: red, green, refactor.
-- Escribimos código solo para hacer pasar tests escritos anteriormente. Soluciones simples, evita YAGNI.
+- Escribimos código solo para hacer pasar tests escritos anteriormente. Nos ayuda a no anticiparnos.
 - Revela patrones. Al detectarlos podemos generalizar.
 - Refactor: modificación de código ya existente para mejorarlo.
 
@@ -142,7 +131,7 @@ Algunas de las funciones que provee, son:
 - Nos concentramos en unidades de código. Resolvemos pequeñas unidades de a una.
 - Nos da confianza: aquello que desarrollamos está cubierto por los tests.
 - Nos ayuda a detectar cambios que rompen otras funcionalidades. Evitamos introducir bugs.
-- Tests bien escritos pueden describir nuestro código. Facilita onboarding.
+- Tests bien escritos pueden describir nuestro código. Facilita inducción de nuevos compañeros al equipo.
 
 ---
 # Recursos
@@ -150,3 +139,9 @@ Algunas de las funciones que provee, son:
 - Cómo instalar Go: https://go.dev/doc/install
 - Documentación oficial del paquete _testing_: https://pkg.go.dev/testing
 - Learn Go with Tests: https://quii.gitbook.io/learn-go-with-tests/
+
+---
+# Consultas y sugerencias
+
+- https://twitter.com/codurance_ES
+- ignacio.saporiti@codurance.com
