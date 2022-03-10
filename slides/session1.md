@@ -139,6 +139,7 @@ Algunas de las funciones que provee, son:
 - Cómo instalar Go: https://go.dev/doc/install
 - Documentación oficial del paquete _testing_: https://pkg.go.dev/testing
 - Learn Go with Tests: https://quii.gitbook.io/learn-go-with-tests/
+- Katas + slides: https://github.com/isaporiti/go-study-group
 
 ---
 # Consultas y sugerencias
