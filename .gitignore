@@ -2,3 +2,4 @@
 *.iml
 *.html
 intro.md
+.DS_Store
