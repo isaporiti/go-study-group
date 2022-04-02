@@ -10,64 +10,81 @@
 
 # ¿Qué es un struct?
 
-Un _struct_ es una colección tipada de campos. Nos sirven para agrupar datos dentro de un mismo tipo.
+Un _struct_ es un tipo de datos compuesto de varios valores, que puede ser tratado como una sola unidad.
 
 ```go
-package main
+package store
 
 import "time"
 
+// Record represents information about a record.
 type Record struct {
-	name        string
-	artist      string
-	releaseDate time.Time
+	Name        string
+	Artist      string
+	ReleaseDate time.Time
 }
+```
 
-r := Record{
-    name:        "Animals",
-    artist:      "Pink Floyd",
-    releaseDate: date(1977, time.January, 23),
+---
+# Uso de mayúsculas/minúsculas
+
+Las palabras que comienzan con mayúscula son de acceso público (pueden ser accedidas desde fuera).
+A su vez, las que comienzan con minúscula son de acceso privado (no pueden ser accedidas desde fuera).
+
+```go
+package store
+
+type Customer struct {} // público
+
+type stock struct {} // privado
+
+type Record struct {
+	Name string // público
+	copies int  // privado
 }
 ```
 
 ---
 # Struct _nesting_ (anidamiento)
 
-Se pueden anidar structs dentro de otros, como campos. Esto nos permite hacer composición de structs.
+Se pueden anidar structs dentro de otros, como campos. Esto nos permite componer structs.
 
 ```go
+package store
+
 type Image struct {
-    url string
+	Url string
 }
 
 type Record struct {
-    artCover Image
+	ArtCover Image
 }
 
 r := Record{
-    artCover: Image{
-        url: "https://classic-albums.com/animals.jpg",
-    },
+    Name:        "Animals",
+    Artist:      "Pink Floyd",
+    ArtCover:    Image{Url: "..."},
+    ReleaseDate: date(1977, time.January, 23),
 }
 ```
 
 ---
 # Structs y funciones
 
-Al definir un struct, estamos definiendo un tipo de datos nuevo. Podemos aceptarlos como parámetro o valor de retorno de
-funciones.
+Al definir un struct, introducimos un nuevo tipo de datos. Pueden ser parámetro o valor de retorno de funciones.
 
 ```go
-func daysSinceRelease(r Record) float64 {
+
+func DaysSinceRelease(r Record) float64 {
     return time.Since(r.releaseDate).Hours() / 24
 }
 
-func newRecord(name, artist string, artCover Image) Record {
+func ReleaseNewRecord(name, artist string, artCover Image) Record {
     return Record{
-		name,
-		artist,
-		time.Now(),
-		artCover
+		Name: name,
+		Artist: artist,
+		ReleaseDate: time.Now(),
+		ArtCover: artCover
 	}
 }
 ```
@@ -75,22 +92,21 @@ func newRecord(name, artist string, artCover Image) Record {
 ---
 # Métodos
 
-Go soporta programación orientada a objetos mediante la unión de funciones (métodos) a structs. No soporta clases ni herencia.
+Go soporta programación orientada a objetos uniendo funciones (métodos) a structs. No soporta clases ni herencia.
 
 ```go
-func (r Record) daysSinceRelease() float64 {
-    return time.Since(r.releaseDate).Hours() / 24
+func (r Record) DaysSinceRelease() float64 {
+    return time.Since(r.ReleaseDate).Hours() / 24
 }
 r = Record{...}
-r.daysSinceRelease()
+r.DaysSinceRelease()
 ```
 
 ---
 # Recursos
 
-- Cómo instalar Go: https://go.dev/doc/install
-- Documentación oficial del paquete _testing_: https://pkg.go.dev/testing
-- Learn Go with Tests: https://quii.gitbook.io/learn-go-with-tests/
+- Go by example: structs https://gobyexample.com/structs
+- Kata sobre Structs, métodos e interfaces https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/structs-methods-and-interfaces
 - Katas + slides: https://github.com/isaporiti/go-study-group
 
 ---
