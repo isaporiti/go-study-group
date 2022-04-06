@@ -120,7 +120,7 @@ func (r Record) DaysSinceRelease() float64 {
     return time.Since(r.ReleaseDate).Hours() / 24
 }
 
-r = Record{...}
+r = Record{}
 r.DaysSinceRelease()
 ```
 
@@ -136,7 +136,7 @@ Go no soporta clases ni herencia. Sin embargo, podemos hacer uso de los siguient
 ---
 # Composición
 
-Se pueden anidar structs dentro de otros, como campos. Esto nos permite definir structs compuestos.
+Podemos anidar structs dentro de otros, como campos. Esto nos permite definir structs compuestos.
 
 ```go
 type Image struct {
@@ -157,7 +157,7 @@ var record = Record{
 ---
 # _Embedding_
 
-Se pueden anidar structs dentro de otros, como campos. Esto nos permite definir structs compuestos.
+Podemos anidar structs sin declarar un nombre de campo. Esto hace que el struct contenedor "adquiera" los campos y métodos del contenido.
 
 ```go
 type Ball struct {
