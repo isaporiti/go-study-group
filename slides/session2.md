@@ -184,7 +184,7 @@ Una interfaz es una colección de _firmas_ de métodos, también conocido como u
 
 En Go, un struct _implementa_ una interfaz si implementa todos los métodos del contrato.
 
-No son necesarias keywords como _extends_.
+En Go, no son necesarias keywords como _extends_.
 
 ---
 # Interfaces II
