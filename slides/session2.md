@@ -4,7 +4,7 @@
 
 ### 7 de abril, 2021
 
-![w:398 h: 430 bg right](img/gomic.png)
+![w:398 h: 430 bg right](img/hiking.png)
 
 ---
 # ¿Qué es un struct?
@@ -227,7 +227,7 @@ Una tienda de discos de música nos pide implementar un sistema para administrar
 
 - Go by example: structs https://gobyexample.com/structs
 - Kata sobre Structs, métodos e interfaces https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/structs-methods-and-interfaces
-- Katas + slides: https://github.com/isaporiti/go-study-group
+- Katas + slides https://github.com/isaporiti/go-study-group
 
 ---
 # Consultas y sugerencias
