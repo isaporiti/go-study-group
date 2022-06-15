@@ -5,29 +5,19 @@ import (
 	"time"
 )
 
-type SpySleepFunc struct {
-	Calls    int
-	Duration time.Duration
-}
-
-func (s *SpySleepFunc) Sleep(d time.Duration) {
-	s.Calls++
-	s.Duration = d
-}
-
 func TestConfigurableSleeper(t *testing.T) {
-	sleepFunc := SpySleepFunc{}
+	var calls int
+	var duration time.Duration
+	sleep := func(d time.Duration) { calls++; duration = d }
 
-	const duration = 3 * time.Second
-	sleeper := ConfigurableSleeper{duration, sleepFunc.Sleep}
+	sleeper := ConfigurableSleeper{Duration: 3 * time.Second, SleepFunc: sleep}
 
 	sleeper.Sleep()
 
-	if sleepFunc.Calls != 1 {
-		t.Errorf("want 1 Sleep call, got %d", sleepFunc.Calls)
+	if calls != 1 {
+		t.Errorf("want 1 Sleep call, got %d", calls)
 	}
-	if sleepFunc.Duration != duration {
-		t.Errorf("want Sleep Duration of %d, got %d", duration, sleepFunc.Duration)
-
+	if sleeper.Duration != duration {
+		t.Errorf("want Sleep duration of %d, got %d", sleeper.Duration, duration)
 	}
 }
