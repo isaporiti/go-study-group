@@ -7,10 +7,14 @@ type Sleeper interface {
 }
 
 type ConfigurableSleeper struct {
-	Duration  time.Duration
-	SleepFunc func(d time.Duration)
+	duration time.Duration
+	sleep    func(d time.Duration)
 }
 
 func (s *ConfigurableSleeper) Sleep() {
-	s.SleepFunc(s.Duration)
+	s.sleep(s.duration)
+}
+
+func NewConfigurableSleeper(duration time.Duration, sleep func(d time.Duration)) *ConfigurableSleeper {
+	return &ConfigurableSleeper{duration: duration, sleep: sleep}
 }
