@@ -6,33 +6,6 @@ import (
 	"testing"
 )
 
-type SpySleeper struct {
-	Calls int
-}
-
-func (s *SpySleeper) Sleep() {
-	s.Calls++
-}
-
-type SpyCountdownOperations struct {
-	Calls []CountdownOperation
-}
-
-type CountdownOperation string
-
-const write CountdownOperation = "write"
-const sleep CountdownOperation = "SleepFunc"
-
-func (s *SpyCountdownOperations) Write(p []byte) (n int, err error) {
-	s.Calls = append(s.Calls, write)
-	return
-}
-
-func (s *SpyCountdownOperations) Sleep() {
-	s.Calls = append(s.Calls, sleep)
-	return
-}
-
 func TestCountdown(t *testing.T) {
 	t.Run("prints from 3 to 1 and finally 'Go!'", func(t *testing.T) {
 		buffer := &bytes.Buffer{}
@@ -67,4 +40,30 @@ Go!
 			t.Errorf("want three writes and sleeps in order, got %v", spyOperations.Calls)
 		}
 	})
+}
+
+type SpySleeper struct {
+}
+
+func (s *SpySleeper) Sleep() {}
+
+type SpyCountdownOperations struct {
+	Calls []CountdownOperation
+}
+
+type CountdownOperation string
+
+const (
+	write CountdownOperation = "write"
+	sleep CountdownOperation = "sleep"
+)
+
+func (s *SpyCountdownOperations) Write(p []byte) (n int, err error) {
+	s.Calls = append(s.Calls, write)
+	return
+}
+
+func (s *SpyCountdownOperations) Sleep() {
+	s.Calls = append(s.Calls, sleep)
+	return
 }
