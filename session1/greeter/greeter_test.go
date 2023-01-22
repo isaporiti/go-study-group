@@ -23,7 +23,7 @@ func TestGreeter(t *testing.T) {
 	})
 
 	t.Run("greets in Spanish", func(t *testing.T) {
-		got := Greeter("Ignacio", Spanish)
+		got := Greeter("Ignacio", SPANISH)
 		want := "Hola, Ignacio"
 
 		if got != want {
@@ -32,7 +32,7 @@ func TestGreeter(t *testing.T) {
 	})
 
 	t.Run("greets in Italian", func(t *testing.T) {
-		got := Greeter("Ignacio", Italian)
+		got := Greeter("Ignacio", ITALIAN)
 		want := "Ciao, Ignacio"
 
 		if got != want {
@@ -41,16 +41,16 @@ func TestGreeter(t *testing.T) {
 	})
 }
 
-//Test tables help us reduce code repetition
+// Test tables help us reduce code repetition
 func TestTableGreeter(t *testing.T) {
 	tests := []struct {
 		testName string
 		language language
 		want     string
 	}{
-		{testName: "greets in English", language: English, want: "Hello, Go Study Group"},
-		{testName: "greets in Spanish", language: Spanish, want: "Hola, Go Study Group"},
-		{testName: "greets in Italian", language: Italian, want: "Ciao, Go Study Group"},
+		{testName: "greets in English", language: ENGLISH, want: "Hello, Go Study Group"},
+		{testName: "greets in Spanish", language: SPANISH, want: "Hola, Go Study Group"},
+		{testName: "greets in Italian", language: ITALIAN, want: "Ciao, Go Study Group"},
 	}
 	const name = "Go Study Group"
 	for _, test := range tests {

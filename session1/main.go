@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	greeting := g.Greeter("Go Study Group", g.Spanish)
+	greeting := g.Greeter("Go Study Group", g.SPANISH)
 	fmt.Println(greeting)
 }

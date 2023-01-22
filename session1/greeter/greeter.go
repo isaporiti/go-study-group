@@ -4,16 +4,18 @@ import "fmt"
 
 type language string
 
-const English language = "English"
-const Spanish language = "Spanish"
-const Italian language = "Italian"
+const (
+	ENGLISH language = "English"
+	SPANISH language = "Spanish"
+	ITALIAN language = "Italian"
+)
 
 func Greeter(name string, language language) string {
 	greeting := "Hello, %s"
-	if language == Spanish {
+	if language == SPANISH {
 		greeting = "Hola, %s"
 	}
-	if language == Italian {
+	if language == ITALIAN {
 		greeting = "Ciao, %s"
 	}
 	return fmt.Sprintf(greeting, name)
