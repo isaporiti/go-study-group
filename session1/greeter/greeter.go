@@ -2,12 +2,12 @@ package greeter
 
 import "fmt"
 
-type language string
+type language int
 
 const (
-	ENGLISH language = "English"
-	SPANISH language = "Spanish"
-	ITALIAN language = "Italian"
+	ENGLISH language = iota
+	SPANISH
+	ITALIAN
 )
 
 func Greeter(name string, language language) string {

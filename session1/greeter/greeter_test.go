@@ -5,7 +5,7 @@ import "testing"
 // t.Run helps us group use cases
 func TestGreeter(t *testing.T) {
 	t.Run("greets Codurance", func(t *testing.T) {
-		got := Greeter("Codurance", "")
+		got := Greeter("Codurance", ENGLISH)
 		want := "Hello, Codurance"
 
 		if got != want {
@@ -14,7 +14,7 @@ func TestGreeter(t *testing.T) {
 	})
 
 	t.Run("greets Ignacio", func(t *testing.T) {
-		got := Greeter("Ignacio", "")
+		got := Greeter("Ignacio", ENGLISH)
 		want := "Hello, Ignacio"
 
 		if got != want {
