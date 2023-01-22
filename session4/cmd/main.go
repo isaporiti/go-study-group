@@ -1,12 +1,13 @@
 package main
 
 import (
-	"countdown"
+	"countdown/countdown"
+	"countdown/sleeper"
 	"os"
 	"time"
 )
 
 func main() {
-	sleeper := countdown.NewConfigurableSleeper(5*time.Second, time.Sleep)
+	sleeper := sleeper.NewConfigurableSleeper(5*time.Second, time.Sleep)
 	countdown.Countdown(os.Stdout, sleeper)
 }
